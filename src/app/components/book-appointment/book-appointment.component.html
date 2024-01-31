@@ -1,0 +1,5 @@
+<app-navbar></app-navbar>
+<form [formGroup]="appointmentForm" (ngSubmit)="bookAppointment()">
+    <!-- Form fields for patient selection, doctor selection, date and time, reason for visit, and appointment type -->
+    <button type="submit">Book Appointment</button>
+</form>

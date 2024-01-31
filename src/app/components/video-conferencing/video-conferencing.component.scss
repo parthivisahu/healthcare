@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .video-conferencing {
+    position: relative;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    margin: 5vh 0 ;
+  
+    video {
+      width: 100%;
+      height: 70%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  
+    .info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+
+        .meet-id {
+            display: flex;
+            align-items: center;
+
+            button {
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
+  
+
+.button-container {
+    position: absolute;
+   padding: 10%; /* This will position the buttons above the time */
+    background-color: black;
+    padding: 10px; /* Add some padding around the buttons */
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically */
+    width: 100%; /* Full width */
+    height: 100%;
+}
+
+.time {
+    position: absolute;
+    
+    bottom: 30px;
+    left: 10px;
+    color: white;
+
+}
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 50%;
+  
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+  
+      &:hover {
+        background-color: #555;
+      }
+  
+      &:active {
+        background-color: #333;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      }
+    }
+    

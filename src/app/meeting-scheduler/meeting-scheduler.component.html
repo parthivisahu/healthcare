@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="scheduler">
+    <h1>Meeting Scheduler</h1>
+  
+    <form [formGroup]="meetingForm" (ngSubmit)="scheduleMeeting()">
+      <mat-form-field appearance="fill">
+        <mat-label>Doctor</mat-label>
+        <input matInput formControlName="doctor">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Patient</mat-label>
+        <input matInput formControlName="patient">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Meeting Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Schedule Meeting</button>
+    </form>
+  
+    <table mat-table [dataSource]="meetings" class="mat-elevation-z8">
+      <!-- Doctor Column -->
+      <ng-container matColumnDef="doctor">
+        <th mat-header-cell *matHeaderCellDef> Doctor </th>
+        <td mat-cell *matCellDef="let meeting"> {{meeting.doctor}} </td>
+      </ng-container>
+  
+      <!-- Patient Column -->
+      <ng-container matColumnDef="patient">
+        <th mat-header-cell *matHeaderCellDef> Patient </th>
+        <td mat-cell *matCellDef="let meeting"> {{meeting.patient}} </td>
+      </ng-container>
+  
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let meeting"> {{meeting.date | date}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="calendar-container">
+    <mwl-calendar-month-view
+      [viewDate]="viewDate"
+      [events]="events"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-month-view>
+  </div>

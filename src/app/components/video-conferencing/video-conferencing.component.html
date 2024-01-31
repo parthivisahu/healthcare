@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="video-conferencing">
+    <video #localVideo autoplay></video>
+    <div class="info">
+        <div class="meet-id">
+            <span>Meet ID: {{ meetId }}</span>
+            <button (click)="copyMeetId()"><i class="material-icons">content_copy</i></button>
+            <button (click)="shareMeetId()"><i class="material-icons">share</i></button>
+        </div>
+    </div>
+</div>
+<div class="controls">
+    <div class="time">IST: {{ currentTime }}
+        <button (click)="startCall()"><i class="fas fa-video"></i></button>
+        <button (click)="endCall()"><i class="fas fa-phone-slash"></i></button>
+        <button (click)="shareScreen()"><i class="fas fa-desktop"></i></button>
+        <button (click)="toggleMic()"><i class="fas fa-microphone"></i></button>
+    </div>
+</div>
